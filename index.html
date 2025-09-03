@@ -1,703 +1,946 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KC Slim</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* General styling for the body */
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: #f8f8f8;
-    }
-
-    /* Gradient text effect for headings */
-    .text-gradient {
-      background: linear-gradient(90deg, #f9418e 0%, #f65e39 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Primary button styling with hover effect */
-    .btn-primary {
-      background: linear-gradient(90deg, #f9418e 0%, #f65e39 100%);
-      transition: transform 0.2s ease-in-out;
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
-    }
-
-    /* Hero section gradient background */
-    .hero-gradient {
-      background: linear-gradient(135deg,
-          #f3e8ff 0%,
-          #e9d5ff 50%,
-          #c084fc 100%);
-    }
-
-    /* Container for the carousel to hide overflow */
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Wrapper for carousel slides to enable sliding effect */
-    .carousel-wrapper {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      /* Set the total width to accommodate all slides */
-      width: 300%;
-    }
-
-    /* Individual carousel slide styling */
-    .carousel-slide {
-      /* Set the width of each slide to a third of the total wrapper width */
-      width: calc(100% / 3);
-      flex-shrink: 0;
-      object-fit: cover;
-      /* All images will now cover their container */
-    }
-
-    /* Smooth scrolling for anchor links */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Navbar styling */
-    .navbar {
-      backdrop-filter: blur(10px);
-      background-color: rgba(255, 255, 255, 0.9);
-    }
-
-    /* WhatsApp floating button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-
-    /* Mobile-first layout - always use mobile layout even on desktop */
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-    }
-  </style>
-</head>
-
-<body class="antialiased max-w-md mx-auto">
-  <!-- Navigation Bar -->
-  <nav class="navbar max-w-md mx-auto fixed top-0 left-0 right-0 z-50 border-b border-gray-200">
-    <div class="container px-6">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <div class="flex items-center space-x-2">
-          <span class="text-xl font-bold text-gray-800">KC SLIM</span>
-        </div>
-
-        <!-- Navigation Links - Hidden on all screen sizes -->
-        <div class="hidden">
-          <a href="#hero" class="text-gray-700 hover:text-pink-500 transition-colors">Beranda</a>
-          <a href="#manfaat" class="text-gray-700 hover:text-pink-500 transition-colors">Manfaat</a>
-          <a href="#product" class="text-gray-700 hover:text-pink-500 transition-colors">Produk</a>
-          <a href="#testimoni" class="text-gray-700 hover:text-pink-500 transition-colors">Testimoni</a>
-          <a href="#distributor" class="text-gray-700 hover:text-pink-500 transition-colors">Distributor</a>
-        </div>
-
-        <!-- CTA Button -->
-        <button class="btn-primary text-white font-bold py-2 px-6 rounded-full shadow-lg">
-          PESAN SEKARANG
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Section 1: Hero Section -->
-  <header id="hero" class="relative bg-white pt-20 py-12 overflow-hidden min-h-[80vh]">
-    <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-pink-100 opacity-50"></div>
-    </div>
-
-    <!-- Mobile layout only -->
-    <div class="container px-6 z-10 relative">
-      <div class="w-full text-left mb-8">
-        <h1 class="text-4xl font-bold text-gray-800 mb-4">
-          Mau Diet Tanpa Ribet?
-        </h1>
-        <p class="text-lg text-gray-600 mb-6">
-          Dulu 92kg, sekarang 57kg. Aku bisa, kamu juga pasti bisa!
-        </p>
-        <div class="flex flex-col items-start space-y-3">
-          <button class="btn-primary text-white font-bold py-3 px-8 rounded-full shadow-lg">
-            Beli Sekarang!
-          </button>
-          <div class="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">
-            ✨ Konsultasi Gratis!
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Product placeholder on left side -->
-    <div class="absolute bottom-10 left-10 w-full h-full pointer-events-none">
-      <div class="relative w-full h-full flex items-end justify-start">
-        <div class="w-40 h-40 p-4 transform hover:scale-105 transition-transform duration-300">
-          <img src="/assets/package/paket_lengkap.png" alt="KC Slim Product 2"
-            class="absolute inset-0 w-full h-full object-contain" />
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile: Image absolutely positioned on right -->
-    <div class="absolute bottom-0 -right-20 w-full h-full pointer-events-none">
-      <div class="relative w-full h-full flex items-end justify-end">
-        <img src="/assets/models/transparent-model.png" alt="KC Slim Model"
-          class="w-[100vw] h-[40vh] object-cover transform hover:scale-105 transition-transform duration-300" />
-      </div>
-    </div>
-  </header>
-  <!-- Section 2: Testimoni Brand Ambassador & Pengguna -->
-  <section class="py-16 bg-white">
-    <div class="container px-6">
-      <!-- Header text -->
-      <div class="text-center mb-8">
-        <h2 class="text-2xl font-bold text-red-600 mb-4">
-          SIAPA YANG UDAH BERUSAHA OLAHRAGA TAPI BB NYA MASIH BELUM TURUN JUGA?
-        </h2>
-      </div>
-
-      <!-- Main content layout -->
-      <div class="flex flex-row items-start gap-4">
-        <!-- Left side: Main Model with overlay text -->
-        <div class="w-1/2 relative">
-          <div class="relative h-96 border-4 rounded-2xl">
-            <img src="/assets/models/hero-model.png" alt="Brand Ambassador" class="w-full h-full object-cover" />
-            <!-- Overlay text on the model -->
-            <div class="absolute bottom-4 right-2 bg-white px-3 py-2 rounded-lg shadow-lg transform rotate-12">
-              <p class="text-sm font-bold text-gray-800">Tenang... aku ada solusinya</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right side: Before Image and Testimonial -->
-        <div class="w-1/2 flex flex-col">
-          <!-- Before image -->
-          <div class="relative w-full mb-4">
-            <img src="/assets/testimoni/before.JPG" alt="Before - Testimoni Pengguna"
-              class="w-full h-auto rounded-lg shadow-md object-cover" />
-          </div>
-          <!-- Testimonial text -->
-          <div class="bg-white p-3 rounded-lg shadow-md">
-            <p class="text-sm text-gray-700 leading-relaxed">
-              aku mantan 92kg sekarang udah 57kg, total bb aku turun 36kg! Aku gak
-              rajin olahraga, tapi aku cukup konsisten konsumsi KC, dan aku yakin
-              kalian semua juga pasti bisa!❤
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: "Diet Aman Tanpa Ribet" with Minister's Message -->
-  <section id="manfaat" class="py-16 bg-pink-100 text-center">
-    <div class="container px-6">
-      <!-- Main heading with 3D effect -->
-      <h2 class="text-4xl font-bold text-pink-600 mb-8 leading-tight drop-shadow-lg">
-        DIET AMAN<br>TANPA RIBET
-      </h2>
-
-      <!-- Product image positioned to the right -->
-      <div class="relative mb-8">
-        <div class="flex justify-center">
-          <div class="relative">
-            <img src="/assets/product/New ITSMYDREAM - 10(1).PNG" alt="KC ITSMYDREAM Best Seller Product"
-              class="w-48 h-auto rounded-lg shadow-lg" />
-            <!-- BEST SELLER badge -->
-            <div
-              class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
-              BEST SELLER
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Minister's message card -->
-      <div class="bg-white p-6 rounded-2xl shadow-xl max-w-full mx-auto">
-        <div class="flex items-start gap-4">
-          <!-- Minister's profile picture -->
-          <div class="flex-shrink-0">
-            <div class="w-16 h-16 rounded-full overflow-hidden">
-              <img src="https://placehold.co/150x150/F0F4F8/52565E?text=Foto+Menteri" alt="Foto Menteri Kesehatan"
-                class="w-full h-full object-cover" />
-            </div>
-          </div>
-
-          <!-- Minister's info and message -->
-          <div class="flex-1 text-left">
-            <h3 class="text-lg font-bold text-gray-800 mb-1">
-              Budi Gunandi Sadikin
-            </h3>
-            <p class="text-gray-600 text-sm mb-3">Menteri Kesehatan</p>
-            <p class="text-gray-700 text-sm leading-relaxed">
-              "menghimbau masyarakat untuk waspada dan mencegah diabetes, serta
-              menekankan pentingnya hidup sehat."
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4: Kenapa Harus KC -->
-  <section class="py-16 bg-pink-50">
-    <div class="container px-6 text-center">
-      <h2 class="text-3xl font-bold text-pink-600 mb-4 drop-shadow-sm">
-        KENAPA HARUS KC?
-      </h2>
-      <p class="text-lg text-pink-600 max-w-3xl mx-auto mb-12">
-        KC SLIM - Solusi Herbal Membantu Menahan Nafsu Makan Dan Memperlancarkan Pencernaan.
-      </p>
-
-      <!-- Product showcase -->
-      <div class="flex justify-center">
-        <img src="/assets/package/paket_lengkap.png" alt="KC Slim Paket Lengkap"
-          class="w-full h-auto rounded-lg shadow-lg" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5: Produk Kami Carousel -->
-  <section id="product">
-    <div>
-      <div id="product-carousel" class="relative max-w-5xl mx-auto">
-        <div class="carousel-container">
-          <div class="carousel-wrapper">
-            <!-- Container for A4 Landscape image -->
-            <div class="relative w-full aspect-[297/210]">
-              <img src="/assets/ourProduct/Manfaat Konsumsi (A4 (Landscape)).zip - 1.png" alt="Produk 1"
-                class="carousel-slide absolute inset-0 w-full h-full object-contain" />
-            </div>
-            <div class="relative w-full aspect-[297/210]">
-              <img src="/assets/ourProduct/Manfaat Konsumsi (A4 (Landscape)).zip - 3.png" alt="Produk 2"
-                class="carousel-slide absolute inset-0 w-full h-full object-contain" />
-            </div>
-            <div class="relative w-full aspect-[297/210]">
-              <img src="/assets/ourProduct/Manfaat Konsumsi (A4 (Landscape)).zip - 5.png" alt="Produk 3"
-                class="carousel-slide absolute inset-0 w-full h-full object-contain" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation -->
-        <button id="product-prev"
-          class="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity">
-          &lt;
-        </button>
-        <button id="product-next"
-          class="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity">
-          &gt;
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 6: Company Statement and Logos -->
-  <section class="py-16 bg-pink-50">
-    <div class="container px-6 text-center">
-      <p class="text-lg text-gray-600 max-w-4xl mx-auto mb-8">
-        KC Slim konsisten menghadirkan produk kesehatan berbasis herbal yang
-        aman, bersertifikat BPOM, HALAL, HAKI, serta Teruji Laboratorium
-        mandiri. Dengan rangkaian produk yang diformulasikan dari bahan alami
-        terbaik, KC hadir untuk mendukung pola hidup sehat, menjaga
-        pencernaan, serta membantu tubuh tetap bugar dan ideal.
-      </p>
-      <div class="flex flex-wrap justify-center items-center gap-8 mt-12">
-        <div class="relative h-24 w-32 bg-white p-4 rounded-lg shadow-md">
-          <img src="/assets/logo/bpom.png" alt="Logo BPOM"
-            class="absolute inset-0 h-full w-full object-cover scale-[200%]" />
-        </div>
-
-        <div class="relative h-24 w-32 bg-white p-4 rounded-lg shadow-md">
-          <img src="/assets/logo/sig.png " alt="Logo SIG" class="absolute inset-0 h-full w-full object-contain" />
-        </div>
-
-        <div class="relative h-24 w-32 bg-white p-4 rounded-lg shadow-md">
-          <img src="/assets/logo/saraswati.png" alt="Logo saraswati"
-            class="absolute inset-0 h-full w-full object-contain" />
-        </div>
-
-        <div class="relative h-24 w-32 bg-white p-4 rounded-lg shadow-md">
-          <img src="/assets/logo/halal.png" alt="Logo HALAL"
-            class="absolute inset-0 h-full w-full object-cover scale-[130%]" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 7: Sertifikat Carousel -->
-  <section class="bg-white">
-    <div>
-      <div id="certificate-carousel" class="relative max-w-5xl mx-auto">
-        <div class="carousel-container">
-          <div class="carousel-wrapper">
-            <!-- Container for A4 Landscape aspect ratio -->
-            <div class="relative w-full aspect-[297/210]">
-              <img src="/assets/certified/Manfaat Konsumsi (A4 (Landscape)).zip - 2.png" alt="Sertifikat BPOM"
-                class="carousel-slide absolute inset-0 w-full h-full object-contain" />
-            </div>
-            <div class="relative w-full aspect-[297/210]">
-              <img src="/assets/certified/Manfaat Konsumsi (A4 (Landscape)).zip - 4.png" alt="Sertifikat HALAL"
-                class="carousel-slide absolute inset-0 w-full h-full object-contain" />
-            </div>
-            <div class="relative w-full aspect-[297/210]">
-              <img src="/assets/certified/Manfaat Konsumsi (A4 (Landscape)).zip - 6.png" alt="Sertifikat Uji Lab"
-                class="carousel-slide absolute inset-0 w-full h-full object-contain" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation -->
-        <button id="certificate-prev"
-          class="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity">
-          &lt;
-        </button>
-        <button id="certificate-next"
-          class="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity">
-          &gt;
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 8: Testimoni Reviews -->
-  <section id="testimoni" class="py-16 bg-pink-50">
-    <div class="container px-6 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-4">
-        Apa Kata Pengguna Kami?
-      </h2>
-      <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-        Lihat ulasan asli dari pembeli setia kami.
-      </p>
-
-      <div class="space-y-8">
-        <div class="relative w-full overflow-hidden rounded-2xl shadow-inner border border-gray-200"
-          style="padding-top: 31.5%">
-          <img src="/assets/testimoni/Screenshot 2025-08-29 at 22.21.15.png" alt="Review Screenshot 1"
-            class="absolute inset-0 w-full h-full object-contain" />
-        </div>
-
-        <div class="relative w-full overflow-hidden rounded-2xl shadow-inner border border-gray-200"
-          style="padding-top: 31.5%">
-          <img src="/assets/testimoni/Screenshot 2025-08-29 at 22.22.40.png" alt="Review Screenshot 2"
-            class="absolute inset-0 w-full h-full object-contain" />
-        </div>
-
-        <div class="relative w-full overflow-hidden rounded-2xl shadow-inner border border-gray-200"
-          style="padding-top: 31.5%">
-          <img src="/assets/testimoni/Screenshot 2025-08-29 at 22.23.12.png" alt="Review Screenshot 3"
-            class="absolute inset-0 w-full h-full object-contain" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 9: Penjualan dan Toko -->
-  <section class="py-16 bg-white text-center">
-    <div class="container px-6">
-      <h2 class="text-3xl font-bold text-gray-800 mb-4">
-        Sudah Terjual Lebih dari
-        <span class="text-gradient">253.3K</span> Produk
-      </h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-        Bergabunglah dengan ribuan orang yang sudah merasakan manfaatnya!
-      </p>
-      <!-- Container for 16:9 image -->
-      <div class="relative w-full mx-auto aspect-video">
-        <img src="/assets/shop/shop.png" alt="Screenshot TikTok Shop"
-          class="absolute inset-0 w-full h-full rounded-xl shadow-lg object-cover" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 10: Before After -->
-  <section class="py-16 bg-pink-100 text-center">
-    <div class="container px-6">
-      <h2 class="text-3xl font-bold text-gray-800 mb-8">
-        Lihat Perubahannya: <span class="text-gradient">Before & After</span>
-      </h2>
-
-      <div class="flex flex-col gap-12">
-        <!-- Item 1 -->
-        <div class="flex flex-row justify-center items-center gap-4 sm:gap-8">
-          <div class="w-1/2">
-            <div class="relative w-full mx-auto aspect-[3/5]">
-              <!-- Mobile phone frame - border radius dipertebal -->
-              <div class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl">
-                <!-- Inner screen area -->
-                <div class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                  <!-- Notch - lebih kecil dan proporsional -->
-                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"></div>
-                  <!-- Screen content - image lebih terlihat -->
-                  <img src="/assets/beforeAfter/before1.png" alt="Before Image"
-                    class="absolute inset-0 w-full h-full object-cover" />
-                  <!-- Home indicator - lebih kecil -->
-                  <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </div>
-            <p class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800">Before</p>
-          </div>
-          <div class="w-1/2">
-            <div class="relative w-full mx-auto aspect-[3/5]">
-              <!-- Mobile phone frame - border radius dipertebal -->
-              <div class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl">
-                <!-- Inner screen area -->
-                <div class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                  <!-- Notch - lebih kecil dan proporsional -->
-                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"></div>
-                  <!-- Screen content - image lebih terlihat -->
-                  <img src="/assets/beforeAfter/after1.png" alt="After Image"
-                    class="absolute inset-0 w-full h-full object-cover" />
-                  <!-- Home indicator - lebih kecil -->
-                  <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </div>
-            <p class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800">After</p>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="flex flex-row justify-center items-center gap-4 sm:gap-8">
-          <div class="w-1/2">
-            <div class="relative w-full mx-auto aspect-[3/5]">
-              <!-- Mobile phone frame - border radius dipertebal -->
-              <div class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl">
-                <!-- Inner screen area -->
-                <div class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                  <!-- Notch - lebih kecil dan proporsional -->
-                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"></div>
-                  <!-- Screen content - image lebih terlihat -->
-                  <img src="/assets/beforeAfter/before2.JPEG" alt="Before Image"
-                    class="absolute inset-0 w-full h-full object-cover" />
-                  <!-- Home indicator - lebih kecil -->
-                  <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </div>
-            <p class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800">Before</p>
-          </div>
-          <div class="w-1/2">
-            <div class="relative w-full mx-auto aspect-[3/5]">
-              <!-- Mobile phone frame - border radius dipertebal -->
-              <div class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl">
-                <!-- Inner screen area -->
-                <div class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                  <!-- Notch - lebih kecil dan proporsional -->
-                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"></div>
-                  <!-- Screen content - image lebih terlihat -->
-                  <img src="/assets/beforeAfter/after2.JPEG" alt="After Image"
-                    class="absolute inset-0 w-full h-full object-cover" />
-                  <!-- Home indicator - lebih kecil -->
-                  <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </div>
-            <p class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800">After</p>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="flex flex-row justify-center items-center gap-4 sm:gap-8">
-          <div class="w-1/2">
-            <div class="relative w-full mx-auto aspect-[3/5]">
-              <!-- Mobile phone frame - border radius dipertebal -->
-              <div class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl">
-                <!-- Inner screen area -->
-                <div class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                  <!-- Notch - lebih kecil dan proporsional -->
-                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"></div>
-                  <!-- Screen content - image lebih terlihat -->
-                  <img src="/assets/beforeAfter/before3.JPG" alt="Before Image"
-                    class="absolute inset-0 w-full h-full object-cover" />
-                  <!-- Home indicator - lebih kecil -->
-                  <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </div>
-            <p class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800">Before</p>
-          </div>
-          <div class="w-1/2">
-            <div class="relative w-full mx-auto aspect-[3/5]">
-              <!-- Mobile phone frame - border radius dipertebal -->
-              <div class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl">
-                <!-- Inner screen area -->
-                <div class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden">
-                  <!-- Notch - lebih kecil dan proporsional -->
-                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"></div>
-                  <!-- Screen content - image lebih terlihat -->
-                  <img src="/assets/beforeAfter/after3.JPG" alt="After Image"
-                    class="absolute inset-0 w-full h-full object-cover" />
-                  <!-- Home indicator - lebih kecil -->
-                  <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </div>
-            <p class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800">After</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Section 11: Product Showcase (3 Products) -->
-  <section class="py-16 bg-pink-50">
-    <div class="container px-6 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-4">
-        Pilih Produk <span class="text-gradient">KC Slim</span> Favoritmu
-      </h2>
-      <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-        Kami hadir untuk mendukung pola hidup sehatmu. Pilih produk yang
-        paling sesuai dengan kebutuhanmu!
-      </p>
-      <div class="grid grid-cols-1 gap-8">
-        <div
-          class="bg-white p-6 rounded-3xl shadow-2xl flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
-          <!-- Container for 3:4 image -->
-          <div class="relative w-2/3 aspect-[3/4] mb-4">
-            <img src="/assets/package/paket_14_day.png" alt="KC Slim Product 1"
-              class="absolute inset-0 w-full h-full object-contain" />
-          </div>
-          <h3 class="font-bold text-2xl text-gray-800 mb-2">Paket 14 Hari</h3>
-          <p class="text-gray-600 mb-4 text-center">
-            KAPSUL + ITSMYDREAM
-          </p>
-        </div>
-        <div
-          class="bg-white p-6 rounded-3xl shadow-2xl flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
-          <!-- Container for 3:4 image -->
-          <div class="relative w-2/3 aspect-[3/4] mb-4">
-            <img src="/assets/package/paket_lengkap.png" alt="KC Slim Product 2"
-              class="absolute inset-0 w-full h-full object-contain" />
-          </div>
-          <h3 class="font-bold text-2xl text-gray-800 mb-2">
-            PAKET LENGKAP
-          </h3>
-          <p class="text-gray-600 mb-4 text-center">
-            Kapsul + Teh + Itsmydream
-          </p>
-        </div>
-        <div
-          class="bg-white p-6 rounded-3xl shadow-2xl flex flex-col items-center transform hover:scale-105 transition-transform duration-300">
-          <!-- Container for 3:4 image -->
-          <div class="relative w-2/3 aspect-[3/4] mb-4">
-            <img src="/assets/package/paket_lengkap.png" alt="KC Slim Product 3"
-              class="absolute inset-0 w-full h-full object-contain" />
-          </div>
-          <h3 class="font-bold text-2xl text-gray-800 mb-2">
-            KC ITSMYENPLEAM
-          </h3>
-          <p class="text-gray-600 mb-4 text-center">
-            Solusi praktis untuk menjaga berat badan tetap ideal.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 12: Whatsapp, TikTok, Shopee CTA -->
-  <section id="distributor" class="py-16 bg-gray-800 text-white text-center">
-    <div class="container px-6">
-      <h2 class="text-3xl font-bold mb-8">
-        Hubungi Kami Sekarang!
-      </h2>
-      <div class="flex flex-wrap justify-center items-center gap-4">
-        <button class="bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition-colors">
-          <img src="https://placehold.co/20x20/00E676/FFFFFF?text=WA" alt="WhatsApp Icon" class="inline-block mr-2" />
-          WhatsApp
-        </button>
-        <button class="bg-black text-white font-bold py-3 px-6 rounded-full hover:bg-gray-900 transition-colors">
-          <img src="https://placehold.co/20x20/000000/FFFFFF?text=TK" alt="TikTok Icon" class="inline-block mr-2" />
-          TikTok Shop
-        </button>
-        <button class="bg-orange-500 text-white font-bold py-3 px-6 rounded-full hover:bg-orange-600 transition-colors">
-          <img src="https://placehold.co/20x20/FF5500/FFFFFF?text=SP" alt="Shopee Icon" class="inline-block mr-2" />
-          Shopee
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-8 bg-gray-900 text-white text-center">
-    <p class="text-sm">&copy; 2025 KC Slim. All rights reserved.</p>
-  </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      /**
-       * Sets up carousel functionality for an element with a given ID.
-       * @param {string} containerId ID of the carousel container element.
-       * @param {string} prevBtnId ID of the "previous" button.
-       * @param {string} nextBtnId ID of the "next" button.
-       */
-      function setupCarousel(containerId, prevBtnId, nextBtnId) {
-        // Get elements from the DOM
-        const carouselContainer = document.getElementById(containerId);
-        if (!carouselContainer) return; // Exit if the element is not found
-
-        const carouselWrapper =
-          carouselContainer.querySelector(".carousel-wrapper");
-        const slides = carouselContainer.querySelectorAll(".carousel-slide");
-        const prevButton = document.getElementById(prevBtnId);
-        const nextButton = document.getElementById(nextBtnId);
-        const totalSlides = slides.length;
-        let currentIndex = 0;
-
-        /**
-         * Updates the carousel display based on the current index.
-         */
-        function updateCarousel() {
-          // Get the width of a single slide, which is the same as the container
-          const slideWidth = carouselContainer.offsetWidth;
-          // Calculate the new transform position in pixels
-          const offset = -currentIndex * slideWidth;
-          carouselWrapper.style.transform = `translateX(${offset}px)`;
-        }
-
-        // Add event listener for the "next" button
-        nextButton.addEventListener("click", () => {
-          currentIndex = (currentIndex + 1) % totalSlides;
-          updateCarousel();
-        });
-
-        // Add event listener for the "previous" button
-        prevButton.addEventListener("click", () => {
-          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-          updateCarousel();
-        });
-
-        // Add event listener for window resize to maintain the carousel's position correctly
-        window.addEventListener("resize", updateCarousel);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KC Slim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* General styling for the body */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f8f8f8;
       }
 
-      // Call the setupCarousel function for each carousel
-      setupCarousel("product-carousel", "product-prev", "product-next");
-      setupCarousel(
-        "certificate-carousel",
-        "certificate-prev",
-        "certificate-next"
-      );
-    });
-  </script>
-</body>
+      /* Gradient text effect for headings */
+      .text-gradient {
+        background: linear-gradient(90deg, #f9418e 0%, #f65e39 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
+      /* Primary button styling with hover effect */
+      .btn-primary {
+        background: linear-gradient(90deg, #f9418e 0%, #f65e39 100%);
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .btn-primary:hover {
+        transform: scale(1.05);
+      }
+
+      /* Hero section gradient background */
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          #f3e8ff 0%,
+          #e9d5ff 50%,
+          #c084fc 100%
+        );
+      }
+
+      /* Container for the carousel to hide overflow */
+      .carousel-container {
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Wrapper for carousel slides to enable sliding effect */
+      .carousel-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        /* Set the total width to accommodate all slides */
+        width: 300%;
+      }
+
+      /* Individual carousel slide styling */
+      .carousel-slide {
+        /* Set the width of each slide to a third of the total wrapper width */
+        width: calc(100% / 3);
+        flex-shrink: 0;
+        object-fit: cover;
+        /* All images will now cover their container */
+      }
+
+      /* Smooth scrolling for anchor links */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Navbar styling */
+      .navbar {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* WhatsApp floating button */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      /* Mobile-first layout - always use mobile layout even on desktop */
+      .container {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body class="antialiased max-w-md mx-auto">
+    <!-- Navigation Bar -->
+    <nav
+      class="navbar max-w-md mx-auto fixed top-0 left-0 right-0 z-50 border-b border-gray-200"
+    >
+      <div class="container px-6">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2">
+            <span class="text-xl font-bold text-gray-800">KC SLIM</span>
+          </div>
+
+          <!-- Navigation Links - Hidden on all screen sizes -->
+          <div class="hidden">
+            <a
+              href="#hero"
+              class="text-gray-700 hover:text-pink-500 transition-colors"
+              >Beranda</a
+            >
+            <a
+              href="#manfaat"
+              class="text-gray-700 hover:text-pink-500 transition-colors"
+              >Manfaat</a
+            >
+            <a
+              href="#product"
+              class="text-gray-700 hover:text-pink-500 transition-colors"
+              >Produk</a
+            >
+            <a
+              href="#testimoni"
+              class="text-gray-700 hover:text-pink-500 transition-colors"
+              >Testimoni</a
+            >
+            <a
+              href="#distributor"
+              class="text-gray-700 hover:text-pink-500 transition-colors"
+              >Distributor</a
+            >
+          </div>
+
+          <!-- CTA Button -->
+          <button
+            class="bg-green-500 text-white font-bold py-2 px-6 rounded-full shadow-lg"
+          >
+            PESAN SEKARANG
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Section 1: Hero Section -->
+    <header
+      id="hero"
+      class="relative bg-white pt-20 py-12 overflow-hidden min-h-[80vh]"
+    >
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-pink-100 opacity-50"></div>
+      </div>
+
+      <!-- Mobile layout only -->
+      <div class="container px-6 z-10 relative">
+        <div class="w-full text-left mb-8">
+          <h1 class="text-4xl font-bold text-gray-800 mb-4">
+            Mau Diet Tanpa Ribet?
+          </h1>
+          <p class="text-lg text-gray-600 mb-6">
+            Dulu 92kg, sekarang 57kg. Aku bisa, kamu juga pasti bisa!
+          </p>
+          <div class="flex flex-col items-start space-y-3">
+            <button
+              class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg"
+            >
+              Beli Sekarang!
+            </button>
+
+            <div
+              class="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full"
+            >
+              ✨ Konsultasi Gratis!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product placeholder on left side -->
+      <div class="absolute bottom-10 left-10 w-full h-full pointer-events-none">
+        <div class="relative w-full h-full flex items-end justify-start">
+          <div
+            class="w-40 h-40 p-4 transform hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src="/assets/package/paket_lengkap.png"
+              alt="KC Slim Product 2"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile: Image absolutely positioned on right -->
+      <div
+        class="absolute bottom-0 -right-20 w-full h-full pointer-events-none"
+      >
+        <div class="relative w-full h-full flex items-end justify-end">
+          <img
+            src="/assets/models/transparent-model.png"
+            alt="KC Slim Model"
+            class="w-[100vw] h-[40vh] object-cover transform hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </div>
+    </header>
+    <!-- Section 2: Testimoni Brand Ambassador & Pengguna -->
+    <section class="py-16 bg-white">
+      <div class="container px-6">
+        <!-- Header text -->
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-red-600 mb-4">
+            SIAPA YANG UDAH BERUSAHA OLAHRAGA TAPI BB NYA MASIH BELUM TURUN
+            JUGA?
+          </h2>
+        </div>
+
+        <!-- Main content layout -->
+        <div class="flex flex-col items-center gap-8">
+          <!-- Top: Main Model with overlay text -->
+          <div class="w-full relative">
+            <div class="relative h-96 border-4 rounded-2xl">
+              <img
+                src="/assets/models/hero-model.png"
+                alt="Brand Ambassador"
+                class="w-full h-full object-cover rounded-2xl"
+              />
+              <!-- Overlay text on the model -->
+              <div
+                class="absolute bottom-4 right-2 bg-white px-3 py-2 rounded-lg shadow-lg transform rotate-12"
+              >
+                <p class="text-sm font-bold text-gray-800">
+                  Tenang... aku ada solusinya
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom: Before Image and Testimonial -->
+          <div class="w-full flex flex-col items-center">
+            <!-- Before image -->
+            <div class="relative w-full mb-4">
+              <img
+                src="/assets/testimoni/before.JPG"
+                alt="Before - Testimoni Pengguna"
+                class="w-full h-auto rounded-lg shadow-md object-cover"
+              />
+            </div>
+            <!-- Testimonial text -->
+            <div class="bg-white p-3 rounded-lg shadow-md">
+              <p class="text-sm text-gray-700 leading-relaxed">
+                aku mantan 92kg sekarang udah 57kg, total bb aku turun 36kg! Aku
+                gak rajin olahraga, tapi aku cukup konsisten konsumsi KC, dan
+                aku yakin kalian semua juga pasti bisa!❤
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: "Diet Aman Tanpa Ribet" with Minister's Message -->
+    <section id="manfaat" class="py-16 bg-pink-100 text-center">
+      <div class="container px-6">
+        <!-- Main heading with 3D effect -->
+        <h2
+          class="text-4xl font-bold text-pink-600 mb-8 leading-tight drop-shadow-lg"
+        >
+          DIET AMAN<br />TANPA RIBET
+        </h2>
+
+        <!-- Product image positioned to the right -->
+        <div class="relative mb-8">
+          <div class="flex justify-center">
+            <div class="relative">
+              <img
+                src="/assets/product/New ITSMYDREAM - 10(1).PNG"
+                alt="KC ITSMYDREAM Best Seller Product"
+                class="w-48 h-auto rounded-lg shadow-lg"
+              />
+              <!-- BEST SELLER badge -->
+              <div
+                class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg"
+              >
+                BEST SELLER
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Minister's message card -->
+        <div class="bg-white p-6 rounded-2xl shadow-xl max-w-full mx-auto">
+          <div class="flex items-start gap-4">
+            <!-- Minister's profile picture -->
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 rounded-full overflow-hidden">
+                <img
+                  src="/assets/menkes.png"
+                  alt="Foto Menteri Kesehatan"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            <!-- Minister's info and message -->
+            <div class="flex-1 text-left">
+              <h3 class="text-lg font-bold text-gray-800 mb-1">
+                Budi Gunandi Sadikin
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">Menteri Kesehatan</p>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "menghimbau masyarakat untuk waspada dan mencegah diabetes,
+                serta menekankan pentingnya hidup sehat."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Kenapa Harus KC -->
+    <section class="py-16 bg-pink-50">
+      <div class="container px-6 text-center">
+        <h2 class="text-3xl font-bold text-pink-600 mb-4 drop-shadow-sm">
+          KENAPA HARUS KC?
+        </h2>
+        <p class="text-lg text-pink-600 max-w-3xl mx-auto mb-12">
+          KC SLIM - Solusi Herbal Membantu Menahan Nafsu Makan Dan
+          Memperlancarkan Pencernaan.
+        </p>
+
+        <!-- Product showcase -->
+        <div class="flex justify-center">
+          <img
+            src="/assets/package/paket_lengkap.png"
+            alt="KC Slim Paket Lengkap"
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Produk Kami Carousel -->
+    <section id="product">
+      <div>
+        <div id="product-carousel" class="relative max-w-5xl mx-auto">
+          <div class="carousel-container">
+            <div class="carousel-wrapper">
+              <!-- Container for A4 Landscape image -->
+              <div class="relative w-full aspect-[297/210]">
+                <img
+                  src="/assets/ourProduct/Manfaat Konsumsi (A4 (Landscape)).zip - 1.png"
+                  alt="Produk 1"
+                  class="carousel-slide absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+              <div class="relative w-full aspect-[297/210]">
+                <img
+                  src="/assets/ourProduct/Manfaat Konsumsi (A4 (Landscape)).zip - 3.png"
+                  alt="Produk 2"
+                  class="carousel-slide absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+              <div class="relative w-full aspect-[297/210]">
+                <img
+                  src="/assets/ourProduct/Manfaat Konsumsi (A4 (Landscape)).zip - 5.png"
+                  alt="Produk 3"
+                  class="carousel-slide absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <button
+            id="product-prev"
+            class="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity"
+          >
+            &lt;
+          </button>
+          <button
+            id="product-next"
+            class="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Company Statement and Logos -->
+    <section class="py-16 bg-pink-50">
+      <div class="container px-6 text-center">
+        <p class="text-lg text-gray-600 max-w-4xl mx-auto mb-8">
+          KC Slim konsisten menghadirkan produk kesehatan berbasis herbal yang
+          aman, bersertifikat
+          <span class="text-bold"
+            >BPOM, HALAL, HAKI, serta Teruji Laboratorium mandiri.</span
+          >
+          Dengan rangkaian produk yang diformulasikan dari bahan alami terbaik,
+          KC hadir untuk mendukung pola hidup sehat, menjaga pencernaan, serta
+          membantu tubuh tetap bugar dan ideal.
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-8 mt-12">
+          <div class="relative h-24 w-32 bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="/assets/logo/bpom.png"
+              alt="Logo BPOM"
+              class="absolute inset-0 h-full w-full object-cover scale-[200%]"
+            />
+          </div>
+
+          <div class="relative h-24 w-32 bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="/assets/logo/sig.png "
+              alt="Logo SIG"
+              class="absolute inset-0 h-full w-full object-contain"
+            />
+          </div>
+
+          <div class="relative h-24 w-32 bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="/assets/logo/saraswati.png"
+              alt="Logo saraswati"
+              class="absolute inset-0 h-full w-full object-contain"
+            />
+          </div>
+
+          <div class="relative h-24 w-32 bg-white p-4 rounded-lg shadow-md">
+            <img
+              src="/assets/logo/halal.png"
+              alt="Logo HALAL"
+              class="absolute inset-0 h-full w-full object-cover scale-[130%]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Sertifikat Carousel -->
+    <section class="bg-white">
+      <div>
+        <div id="certificate-carousel" class="relative max-w-5xl mx-auto">
+          <div class="carousel-container">
+            <div class="carousel-wrapper">
+              <!-- Container for A4 Landscape aspect ratio -->
+              <div class="relative w-full aspect-[297/210]">
+                <img
+                  src="/assets/certified/Manfaat Konsumsi (A4 (Landscape)).zip - 2.png"
+                  alt="Sertifikat BPOM"
+                  class="carousel-slide absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+              <div class="relative w-full aspect-[297/210]">
+                <img
+                  src="/assets/certified/Manfaat Konsumsi (A4 (Landscape)).zip - 4.png"
+                  alt="Sertifikat HALAL"
+                  class="carousel-slide absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+              <div class="relative w-full aspect-[297/210]">
+                <img
+                  src="/assets/certified/Manfaat Konsumsi (A4 (Landscape)).zip - 6.png"
+                  alt="Sertifikat Uji Lab"
+                  class="carousel-slide absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <button
+            id="certificate-prev"
+            class="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity"
+          >
+            &lt;
+          </button>
+          <button
+            id="certificate-next"
+            class="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Testimoni Reviews -->
+    <section id="testimoni" class="py-16 bg-pink-50">
+      <div class="container px-6 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">
+          Apa Kata Pengguna Kami?
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+          Lihat ulasan asli dari pembeli setia kami.
+        </p>
+
+        <div class="space-y-8">
+          <div
+            class="relative w-full overflow-hidden rounded-2xl shadow-inner border border-gray-200"
+            style="padding-top: 31.5%"
+          >
+            <img
+              src="/assets/testimoni/Screenshot 2025-08-29 at 22.21.15.png"
+              alt="Review Screenshot 1"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+          </div>
+
+          <div
+            class="relative w-full overflow-hidden rounded-2xl shadow-inner border border-gray-200"
+            style="padding-top: 31.5%"
+          >
+            <img
+              src="/assets/testimoni/Screenshot 2025-08-29 at 22.22.40.png"
+              alt="Review Screenshot 2"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+          </div>
+
+          <div
+            class="relative w-full overflow-hidden rounded-2xl shadow-inner border border-gray-200"
+            style="padding-top: 31.5%"
+          >
+            <img
+              src="/assets/testimoni/Screenshot 2025-08-29 at 22.23.12.png"
+              alt="Review Screenshot 3"
+              class="absolute inset-0 w-full h-full object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Penjualan dan Toko -->
+    <section class="py-16 bg-white text-center">
+      <div class="container px-6">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">
+          Sudah Terjual Lebih dari
+          <span class="text-gradient">253.3K</span> Produk
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+          Bergabunglah dengan ribuan orang yang sudah merasakan manfaatnya!
+        </p>
+        <!-- Container for 16:9 image -->
+        <div class="relative w-full mx-auto aspect-video">
+          <img
+            src="/assets/shop/shop.png"
+            alt="Screenshot TikTok Shop"
+            class="absolute inset-0 w-full h-full rounded-xl shadow-lg object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Before After -->
+    <section class="py-16 bg-pink-100 text-center">
+      <div class="container px-6">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">
+          Lihat Perubahannya: <span class="text-gradient">Before & After</span>
+        </h2>
+
+        <div class="flex flex-col gap-12">
+          <!-- Item 1 -->
+          <div class="flex flex-row justify-center items-center gap-4 sm:gap-8">
+            <div class="w-1/2">
+              <div class="relative w-full mx-auto aspect-[3/5]">
+                <!-- Mobile phone frame - border radius dipertebal -->
+                <div
+                  class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl"
+                >
+                  <!-- Inner screen area -->
+                  <div
+                    class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden"
+                  >
+                    <!-- Notch - lebih kecil dan proporsional -->
+                    <div
+                      class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"
+                    ></div>
+                    <!-- Screen content - image lebih terlihat -->
+                    <img
+                      src="/assets/beforeAfter/before1.png"
+                      alt="Before Image"
+                      class="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <!-- Home indicator - lebih kecil -->
+                    <div
+                      class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800"
+              >
+                Before
+              </p>
+            </div>
+            <div class="w-1/2">
+              <div class="relative w-full mx-auto aspect-[3/5]">
+                <!-- Mobile phone frame - border radius dipertebal -->
+                <div
+                  class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl"
+                >
+                  <!-- Inner screen area -->
+                  <div
+                    class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden"
+                  >
+                    <!-- Notch - lebih kecil dan proporsional -->
+                    <div
+                      class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"
+                    ></div>
+                    <!-- Screen content - image lebih terlihat -->
+                    <img
+                      src="/assets/beforeAfter/after1.png"
+                      alt="After Image"
+                      class="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <!-- Home indicator - lebih kecil -->
+                    <div
+                      class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800"
+              >
+                After
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex flex-row justify-center items-center gap-4 sm:gap-8">
+            <div class="w-1/2">
+              <div class="relative w-full mx-auto aspect-[3/5]">
+                <!-- Mobile phone frame - border radius dipertebal -->
+                <div
+                  class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl"
+                >
+                  <!-- Inner screen area -->
+                  <div
+                    class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden"
+                  >
+                    <!-- Notch - lebih kecil dan proporsional -->
+                    <div
+                      class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"
+                    ></div>
+                    <!-- Screen content - image lebih terlihat -->
+                    <img
+                      src="/assets/beforeAfter/before2.JPEG"
+                      alt="Before Image"
+                      class="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <!-- Home indicator - lebih kecil -->
+                    <div
+                      class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800"
+              >
+                Before
+              </p>
+            </div>
+            <div class="w-1/2">
+              <div class="relative w-full mx-auto aspect-[3/5]">
+                <!-- Mobile phone frame - border radius dipertebal -->
+                <div
+                  class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl"
+                >
+                  <!-- Inner screen area -->
+                  <div
+                    class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden"
+                  >
+                    <!-- Notch - lebih kecil dan proporsional -->
+                    <div
+                      class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"
+                    ></div>
+                    <!-- Screen content - image lebih terlihat -->
+                    <img
+                      src="/assets/beforeAfter/after2.JPEG"
+                      alt="After Image"
+                      class="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <!-- Home indicator - lebih kecil -->
+                    <div
+                      class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800"
+              >
+                After
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="flex flex-row justify-center items-center gap-4 sm:gap-8">
+            <div class="w-1/2">
+              <div class="relative w-full mx-auto aspect-[3/5]">
+                <!-- Mobile phone frame - border radius dipertebal -->
+                <div
+                  class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl"
+                >
+                  <!-- Inner screen area -->
+                  <div
+                    class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden"
+                  >
+                    <!-- Notch - lebih kecil dan proporsional -->
+                    <div
+                      class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"
+                    ></div>
+                    <!-- Screen content - image lebih terlihat -->
+                    <img
+                      src="/assets/beforeAfter/before3.JPG"
+                      alt="Before Image"
+                      class="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <!-- Home indicator - lebih kecil -->
+                    <div
+                      class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800"
+              >
+                Before
+              </p>
+            </div>
+            <div class="w-1/2">
+              <div class="relative w-full mx-auto aspect-[3/5]">
+                <!-- Mobile phone frame - border radius dipertebal -->
+                <div
+                  class="relative w-full h-full bg-black rounded-[2.5rem] p-1.5 shadow-xl"
+                >
+                  <!-- Inner screen area -->
+                  <div
+                    class="relative w-full h-full bg-white rounded-[2rem] overflow-hidden"
+                  >
+                    <!-- Notch - lebih kecil dan proporsional -->
+                    <div
+                      class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black rounded-b-lg z-10"
+                    ></div>
+                    <!-- Screen content - image lebih terlihat -->
+                    <img
+                      src="/assets/beforeAfter/after3.JPG"
+                      alt="After Image"
+                      class="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <!-- Home indicator - lebih kecil -->
+                    <div
+                      class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-20 h-0.5 bg-black rounded-full opacity-50"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="mt-2 sm:mt-4 text-sm sm:text-xl font-semibold text-gray-800"
+              >
+                After
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: Product Showcase (3 Products) -->
+    <section class="py-16 bg-pink-50">
+      <div class="container px-6 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">
+          Pilih Produk <span class="text-gradient">KC Slim</span> Favoritmu
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+          Kami hadir untuk mendukung pola hidup sehatmu. Pilih produk yang
+          paling sesuai dengan kebutuhanmu!
+        </p>
+        <div class="grid grid-cols-1 gap-8">
+          <div
+            class="bg-white p-6 rounded-3xl shadow-2xl flex flex-col items-center transform hover:scale-105 transition-transform duration-300"
+          >
+            <!-- Container for 3:4 image -->
+            <div class="relative w-2/3 aspect-[3/4] mb-4">
+              <img
+                src="/assets/package/paket_14_day.png"
+                alt="KC Slim Product 1"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="font-bold text-2xl text-gray-800 mb-2">Paket 14 Hari</h3>
+            <p class="text-gray-600 mb-4 text-center">KAPSUL + ITSMYDREAM</p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-3xl shadow-2xl flex flex-col items-center transform hover:scale-105 transition-transform duration-300"
+          >
+            <!-- Container for 3:4 image -->
+            <div class="relative w-2/3 aspect-[3/4] mb-4">
+              <img
+                src="/assets/package/paket_lengkap.png"
+                alt="KC Slim Product 2"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="font-bold text-2xl text-gray-800 mb-2">PAKET LENGKAP</h3>
+            <p class="text-gray-600 mb-4 text-center">
+              Kapsul + Teh + Itsmydream
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-3xl shadow-2xl flex flex-col items-center transform hover:scale-105 transition-transform duration-300"
+          >
+            <!-- Container for 3:4 image -->
+            <div class="relative w-2/3 aspect-[3/4] mb-4">
+              <img
+                src="/assets/package/paket_lengkap.png"
+                alt="KC Slim Product 3"
+                class="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="font-bold text-2xl text-gray-800 mb-2">
+              KC ITSMYENPLEAM
+            </h3>
+            <p class="text-gray-600 mb-4 text-center">
+              Solusi praktis untuk menjaga berat badan tetap ideal.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 12: Whatsapp, TikTok, Shopee CTA -->
+    <section id="distributor" class="py-16 bg-gray-800 text-white text-center">
+      <div class="container px-6">
+        <h2 class="text-3xl font-bold mb-8">Hubungi Kami Sekarang!</h2>
+        <div class="flex flex-wrap justify-center items-center gap-4">
+          <button
+            class="bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition-colors"
+          >
+            <img
+              src="https://placehold.co/20x20/00E676/FFFFFF?text=WA"
+              alt="WhatsApp Icon"
+              class="inline-block mr-2"
+            />
+            WhatsApp
+          </button>
+          <button
+            class="bg-black text-white font-bold py-3 px-6 rounded-full hover:bg-gray-900 transition-colors"
+          >
+            <img
+              src="https://placehold.co/20x20/000000/FFFFFF?text=TK"
+              alt="TikTok Icon"
+              class="inline-block mr-2"
+            />
+            TikTok Shop
+          </button>
+          <button
+            class="bg-orange-500 text-white font-bold py-3 px-6 rounded-full hover:bg-orange-600 transition-colors"
+          >
+            <img
+              src="https://placehold.co/20x20/FF5500/FFFFFF?text=SP"
+              alt="Shopee Icon"
+              class="inline-block mr-2"
+            />
+            Shopee
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 text-white text-center">
+      <p class="text-sm">&copy; 2025 KC Slim. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        /**
+         * Sets up carousel functionality for an element with a given ID.
+         * @param {string} containerId ID of the carousel container element.
+         * @param {string} prevBtnId ID of the "previous" button.
+         * @param {string} nextBtnId ID of the "next" button.
+         */
+        function setupCarousel(containerId, prevBtnId, nextBtnId) {
+          // Get elements from the DOM
+          const carouselContainer = document.getElementById(containerId);
+          if (!carouselContainer) return; // Exit if the element is not found
+
+          const carouselWrapper =
+            carouselContainer.querySelector(".carousel-wrapper");
+          const slides = carouselContainer.querySelectorAll(".carousel-slide");
+          const prevButton = document.getElementById(prevBtnId);
+          const nextButton = document.getElementById(nextBtnId);
+          const totalSlides = slides.length;
+          let currentIndex = 0;
+
+          /**
+           * Updates the carousel display based on the current index.
+           */
+          function updateCarousel() {
+            // Get the width of a single slide, which is the same as the container
+            const slideWidth = carouselContainer.offsetWidth;
+            // Calculate the new transform position in pixels
+            const offset = -currentIndex * slideWidth;
+            carouselWrapper.style.transform = `translateX(${offset}px)`;
+          }
+
+          // Add event listener for the "next" button
+          nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+          });
+
+          // Add event listener for the "previous" button
+          prevButton.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+          });
+
+          // Add event listener for window resize to maintain the carousel's position correctly
+          window.addEventListener("resize", updateCarousel);
+        }
+
+        // Call the setupCarousel function for each carousel
+        setupCarousel("product-carousel", "product-prev", "product-next");
+        setupCarousel(
+          "certificate-carousel",
+          "certificate-prev",
+          "certificate-next"
+        );
+      });
+    </script>
+  </body>
 </html>
